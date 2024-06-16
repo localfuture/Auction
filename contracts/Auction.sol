@@ -4,18 +4,56 @@ pragma solidity ^0.8.20;
 
 contract Auction {
 
-		function createAuction(uint256 itemNumber,uint256 startingPrice,uint256 duration) public { }
+    /**
+     * @dev This function allows the contract owner to create a new auction. 
+     * The auction starts as soon as this function is called.
+     * @param itemNumber the number of the item for auction and should be unique for each item
+     * @param startingPrice the starting price of the auction in wei and cannot be zero
+     * @param duration the duraction of the auction in seconds and cannot be zero
+     */
+	function createAuction(uint256 itemNumber,uint256 startingPrice,uint256 duration) public { }
 
-		function bid(uint256 itemNumber, uint256 bidAmount) public { }
+    /**
+     * @dev This is a payable function allows a user to place a bid on an item. 
+     * @param itemNumber the number of the item for which the bid is being placed
+     * @param bidAmount the amount of the bid
+     */
+	function bid(uint256 itemNumber, uint256 bidAmount) public { }
 
-		function checkAuctionActive(uint256 itemNumber) public returns (bool) { }
+    /**
+     * @dev This function allows the contract owner to cancel an auction. 
+     * An auction can only be cancelled if the auction is still active.
+     * @param itemNumber the number of the item for which the auction is being cancelled
+     */
+	function cancelAuction(uint256 itemNumber) public { }
 
-		function cancelAuction(uint256 itemNumber) public { }
+    /**
+     *  This function allows a user to check the status of an auction.
+     * @param itemNumber the number of the item for which the auction status is being checked
+     */
+    function checkAuctionActive(uint256 itemNumber) public returns (bool) { }
 
-		function timeLeft(uint256 itemNumber) public returns (uint256) { }
+    /**
+     * This function returns the time left in seconds for the auction for the given item Number
+     * @param itemNumber the number of the item
+     * @return time left in seconds for the auction for the given item Number
+     */
+	function timeLeft(uint256 itemNumber) public returns (uint256) { }
 
-		function checkHighestBidder(uint256 itemNumber) public returns (address) { }
+    /**
+     * This function allows a user to check the highest bidder of an item.
+     * @param itemNumber the number of the item for which the owner is being checked
+     * @return address  highest bidder if the auction is active or has ended, or 
+     * address 0 if the auction has not started or has been cancelled.
+     */
+	function checkHighestBidder(uint256 itemNumber) public returns (address) { }
 
-		function checkActiveBidPrice(uint256 itemNumber) public returns (uint256){ }
+    /**
+     * This function returns the Highest bid price for the given item number if the auction is still active. 
+     * f the auction has ended or has not started for the given item number then transaction should revert.
+     * @param itemNumber the number of the item for which the owner is being checked
+     * @return price highest bid price
+     */
+	function checkActiveBidPrice(uint256 itemNumber) public returns (uint256){ }
 
 }
