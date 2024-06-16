@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
-import type { Auction } from "../../types/contracts/Auction";
-import type { Auction__factory } from "../../types/factories/contracts/Auction__factory";
+import type { Auction } from "../../types/Auction";
+import type { Auction__factory } from "../../types/factories/Auction__factory";
 
 export async function deployLockFixture() {
   const [owner, address1, address2, address3] = await ethers.getSigners();
